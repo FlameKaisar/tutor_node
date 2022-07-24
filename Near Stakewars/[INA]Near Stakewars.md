@@ -1,12 +1,15 @@
-NEAR Stake Wars III: Validator Node Setup Guide for Microsoft Azure Bahasa Indonesia
+# NEAR Stake Wars III: Validator Node Setup Guide for Microsoft Azure Bahasa Indonesia
+
 Jika kamu ingin berpatisipasi dalam NEAR Stake Wars, panduan ini akan membantu anda
 
-Ada 4 Step
-	1. Membuat akun Azure dan membuat vps
-	2. Membuat akun wallet Near Shardnet
-	3. Install Near CLI dan dev tools
-	4. Deploy sebuah staking pool untuk validator
-	5. Set up tools for monitoring node status
+Ada 5 Step
+* [Membuat akun Azure dan membuat vps](https://github.com/FlameKaisar/tutor_node/blob/main/Near%20Stakewars/%5BINA%5DNear%20Stakewars.md#step-i-membuat-akun-azure-dan-membuat-vps)
+* [Membuat akun wallet Near Shardnet](https://github.com/FlameKaisar/tutor_node/blob/main/Near%20Stakewars/%5BINA%5DNear%20Stakewars.md#step-ii-membuat-akun-wallet-near-shardnet)
+* [Install Near CLI dan dev tools](https://github.com/FlameKaisar/tutor_node/blob/main/Near%20Stakewars/%5BINA%5DNear%20Stakewars.md#step-iii-install-near-cli-dan-dev-tools)
+* [Deploy sebuah staking pool untuk validator](https://github.com/FlameKaisar/tutor_node/blob/main/Near%20Stakewars/%5BINA%5DNear%20Stakewars.md#step-iv---deploy-sebuah-staking-pool-untuk-validator)
+* [Set up tools for monitoring node status](https://github.com/FlameKaisar/tutor_node/blob/main/Near%20Stakewars/%5BINA%5DNear%20Stakewars.md#step-v---set-up-tools-for-monitoring-node-status)
+
+#### Server Requirements
 	
 | TYPE  |  Requirement |
 | ------------------------------------- | ------------------------|
@@ -15,18 +18,21 @@ Ada 4 Step
 |STORAGE    | 500GB SSD   |
 
 # STEP I Membuat akun Azure dan membuat vps
-Kalian bisa mendaftar akun azure di link https://azure.microsoft.com/en-us/free/ untuk mendapatkan 100$ credit untuk sebulan
+Kamu bisa mendaftar akun azure di link https://azure.microsoft.com/en-us/free/ untuk mendapatkan 100$ credit untuk sebulan
 
-Setelah selesai mendaftar, maka Langkah selanjutnya yaitu login ke azure kalian
+Setelah selesai mendaftar, maka Langkah selanjutnya yaitu login ke azure kamu
+
 ![img](./images/1.jpg)
 
 Pergi ke Virtual machines -> Create -> Azure virtual machine
+
 ![img](./images/2.jpg)
 
-Setelah itu kalian isi
+Setelah itu kamu isi
+
 ![img](./images/3.jpg)
 
-Untuk region kalian bebas cari yang mana, tapi untuk kali ini saya akan memilih US West 3
+Untuk region kamu bebas cari yang mana, tapi untuk kali ini saya akan memilih US West 3
 ![img](./images/4.jpg)
 
 Untuk size VPS saya akan memakai F4s_v2 atau kamu bisa memilih yang lain
@@ -35,11 +41,17 @@ Untuk size VPS saya akan memakai F4s_v2 atau kamu bisa memilih yang lain
 Untuk Administrator account saya sarankan untuk memilih SSH public key dikarenakan saya akan menggunakan ssh konek menggunakan putty
 ![img](./images/6.jpg)
 
-Setelah itu kalian tinggal klik Review + create dan klik create
-Tunggu beberapa menit maka vps kalian sudah dibuat
-Sebelum menyalakan vps kalian, kalian harus mensetting storage kalian
-Pada halaman awal azure kalian, klik Virtual machine
-Lalu pilih vps yang tadi kalian buat, klik menu overview lalu klik stop untuk mematikan vps
+Setelah itu kamu tinggal klik Review + create dan klik create
+
+Tunggu beberapa menit maka vps kamu sudah dibuat
+
+Sebelum menyalakan vps kamu, kamu harus mensetting storage kamu
+
+Pada halaman awal azure kamu, klik Virtual machine
+
+![img](./images/1.jpg)
+
+Lalu pilih vps yang tadi kamu buat, klik menu overview lalu klik stop untuk mematikan vps
 ![img](./images/7.jpg)
 
 Setelah itu, klik menu Disk, lalu klik disk yang ada pada OS disk
@@ -54,12 +66,14 @@ Maka VPS sudah siap untuk di pakai untuk menjalankan node near
 
 # STEP II Membuat akun wallet Near Shardnet
 Kunjungi link ini https://wallet.shardnet.near.org/ dan buat akun dan simpan seed phrase. Wallet ini akan digunakan untuk menyimpan token NEAR.
+
 ![img](./images/10.jpg)
 
 Nama wallet terserah kamu
+
 ![img](./images/11.jpg)
 
-Pada saat membuat akun baru, kalian langsung akan mendapatkan 500 token NEAR
+Pada saat membuat akun baru, kamu langsung akan mendapatkan 500 token NEAR
 
 # STEP III Install Near CLI dan dev tools
 Sebelum kita mulai, kita harus mengecek dahulu apakah cpu yang kita pakai sudah support avx
@@ -69,7 +83,7 @@ lscpu | grep -P '(?=.*avx )(?=.*sse4.2 )(?=.*cx16 )(?=.*popcnt )' > /dev/null \
   && echo "Supported" \
   || echo "Not supported"
 ```
-> Apabila muncul kalimat supported maka kalian bisa lanjut ke step berikutnya
+> Apabila muncul kalimat supported maka kamu bisa lanjut ke step berikutnya
 
 Pertama-tama, kita update dulu sistem yang kita pakai
 ```
@@ -149,7 +163,7 @@ Tulis command ini untuk login ke dalam akun near yang kita buat sebelumnya
 ```
 near login
 ```
-> Sebuah link akan keluar, copy dan buka di browser kalian, setelah itu izinkan akses penuh ke dalam akun kalian dengan memasukkan Account ID kalian
+> Sebuah link akan keluar, copy dan buka di browser kamu, setelah itu izinkan akses penuh ke dalam akun kamu dengan memasukkan Account ID kamu
 ![img](./images/12.jpg)
 
 Sekarang kita akan membuat validator keys, keys tidak dibuat pada defaut maka dari itu kita akan membuatnya. Kita akan membuatnya dengan menggunakan Account ID kita dan mengubahnya menjadi bentuk yang valid
@@ -272,9 +286,10 @@ Cek Blocks Produced / Expected
 curl -s -d '{"jsonrpc": "2.0", "method": "validators", "id": "dontcare", "params": [null]}' -H 'Content-Type: application/json' 127.0.0.1:3030 | jq -c '.result.current_validators[] | select(.account_id | contains ("POOL_ID"))'
 ```
 
-Dengan ini, kalian sudah sukses menjalankan validator node kalian sediri
+Dengan ini, kamu sudah sukses menjalankan validator node kamu sediri
 Maka Challenge 1-4 sudah selesai
-Selamat
+
+Selamat :partying_face::partying_face::partying_face:
 
 Untuk Challenge yang lain dapat dilihat di
 https://github.com/near/stakewars-iii/tree/main/challenges
