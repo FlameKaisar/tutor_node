@@ -35,8 +35,9 @@ Setelah itu kamu isi
 Untuk region kamu bebas cari yang mana, tapi untuk kali ini saya akan memilih US West 3
 ![img](./images/4.jpg)
 
-Untuk size VPS saya akan memakai F4s_v2 atau kamu bisa memilih yang lain
+Untuk size VPS saya akan memakai F4s_v2 seharga $156 atau kamu bisa memilih yang lain
 ![img](./images/5.jpg)
+> harga bisa berbeda beda tergantung lokasi server yang kamu pilih
 
 Untuk Administrator account saya sarankan untuk memilih SSH public key dikarenakan saya akan menggunakan ssh konek menggunakan putty
 ![img](./images/6.jpg)
