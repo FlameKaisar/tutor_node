@@ -273,7 +273,7 @@ File log disimpan baik di direktori ~/.nearup/logs atau di systemd
 
 Command
 ```
-journalctl -n 100 -f -u neard | ccze -A
+sudo apt install curl jq
 ```
 
 Cek versi node
