@@ -99,6 +99,8 @@ sudo apt install -y git binutils-dev libcurl4-openssl-dev zlib1g-dev libdw-dev l
 Install Python pip
 ```
 sudo apt install python3-pip
+```
+```
 USER_BASE_BIN=$(python3 -m site --user-base)/bin
 export PATH="$USER_BASE_BIN:$PATH"
 ```
@@ -111,6 +113,12 @@ sudo apt install clang build-essential make
 Install Rust & Cargo
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+Install Node.js & npm
+```
+curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -  
+sudo apt install build-essential nodejs
+PATH="$PATH"
 ```
 
 Source the environment
@@ -155,6 +163,7 @@ wget -O ~/.near/config.json https://s3-us-west-1.amazonaws.com/build.nearprotoco
 
 Setelah selesai, kita bisa jalankan node
 ```
+cd $home
 cd nearcore
 ./target/release/neard --home ~/.near run
 ```
@@ -169,9 +178,9 @@ near login
 
 Sekarang kita akan membuat validator keys, keys tidak dibuat pada defaut maka dari itu kita akan membuatnya. Kita akan membuatnya dengan menggunakan Account ID kita dan mengubahnya menjadi bentuk yang valid
 ```
-near generate-key <account_id>cp ~/.near-credentials/shardnet/<account_id> ~/.near/validator_key.json
+near generate-key <account_id> cp ~/.near-credentials/shardnet/<account_id>.json ~/.near/validator_key.json
 ```
-> Di mana validator_key.json adalah namawalletkamu.shardnet.near
+> Di mana <account_id> adalah namawalletkamu.shardnet.near
 
 Sekarang kita akan mengedit file validator_key.json
 ```
