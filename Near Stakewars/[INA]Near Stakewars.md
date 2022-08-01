@@ -154,7 +154,7 @@ Compile nearcore yang terbaru
 ```
 cargo build -p neard --release --features shardnet
 ```
-> Ini akan memakan waktu sekitar 10-15 menit tergantung spek vps yang digunakan
+> Ini akan memakan waktu sekitar 15-20 menit tergantung spek vps yang digunakan
 
 Agar dapat bekerja dengan baik, node NEAR memerlukan direktori kerja dan beberapa file konfigurasi. Hasilkan direktori kerja awal yang diperlukan dengan menjalankan:
 ```
