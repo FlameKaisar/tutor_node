@@ -118,6 +118,8 @@ Install Node.js & npm
 ```
 curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -  
 sudo apt install build-essential nodejs
+```
+```
 PATH="$PATH"
 ```
 
