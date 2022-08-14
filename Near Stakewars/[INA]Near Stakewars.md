@@ -243,7 +243,7 @@ journalctl -n 100 -f -u neard | ccze -A
 # Step IV - Deploy sebuah staking pool untuk validator
 Deploy a staking pool contract
 ```
-near call factory.shardnet.near create_staking_pool '{"staking_pool_id": "<pool id>", "owner_id": "<accountId>", "stake_public_key": "<public key>", "reward_fee_fraction": {"numerator": 5, "denominator": 100}, "code_hash":"DD428g9eqLL8fWUxv8QSpVFzyHi1Qd16P8ephYCTmMSZ"}' --accountId="<accountId>" --amount=30 --gas=300000000000000
+near call factory.shardnet.near create_staking_pool '{"staking_pool_id": "<pool id>", "owner_id": "<accountId>", "stake_public_key": "<public key>", "reward_fee_fraction": {"numerator": 5, "denominator": 100}, "code_hash":"DD428g9eqLL8fWUxv8QSpVFzyHi1Qd16P8ephYCTmMSZ"}' --accountId="<accountId>" --amount=30 --gas=30000000000000
 ```
 * Pool ID: Staking pool name, contohnya jika pool idnya flamekaisar maka akan dibuat flamekaisar.factory.shardnet.near
 * Owner ID: akun Near Shardnet yang akan mengelola staking pool
@@ -255,19 +255,19 @@ near call factory.shardnet.near create_staking_pool '{"staking_pool_id": "<pool 
 
 Contoh
 ```
-near call factory.shardnet.near create_staking_pool '{"staking_pool_id": "flamekaisar", "owner_id": "flamekaisar.shardnet.near", "stake_public_key": "ed25519:5e36d4QTevkbBeqtadoEe72et8T158vAispktd6hdgr", "reward_fee_fraction": {"numerator": 5, "denominator": 100}, "code_hash":"DD428g9eqLL8fWUxv8QSpVFzyHi1Qd16P8ephYCTmMSZ"}' --accountId="flamekaisar.shardnet.near" --amount=30 --gas=300000000000000
+near call factory.shardnet.near create_staking_pool '{"staking_pool_id": "flamekaisar", "owner_id": "flamekaisar.shardnet.near", "stake_public_key": "ed25519:5e36d4QTevkbBeqtadoEe72et8T158vAispktd6hdgr", "reward_fee_fraction": {"numerator": 5, "denominator": 100}, "code_hash":"DD428g9eqLL8fWUxv8QSpVFzyHi1Qd16P8ephYCTmMSZ"}' --accountId="flamekaisar.shardnet.near" --amount=30 --gas=30000000000000
 ```
 
 Sekarang poolmu sudah terlihat di https://explorer.shardnet.near.org/nodes/validators
 
 Langkah selanjutnya adalah stake ke pool
 ```
-near call <staking_pool_id> deposit_and_stake --amount <amount> --accountId <accountId> --gas=300000000000000
+near call <staking_pool_id> deposit_and_stake --amount <amount> --accountId <accountId> --gas=30000000000000
 ```
 
 Contoh dengan stake 110 near
 ```
-near call flamekaisar.factory.shardnet.near deposit_and_stake --amount 110 --accountId flamekaisar.shardnet.near --gas=300000000000000
+near call flamekaisar.factory.shardnet.near deposit_and_stake --amount 110 --accountId flamekaisar.shardnet.near --gas=30000000000000
 ```
 
 # Step V - Set up tools for monitoring node status
